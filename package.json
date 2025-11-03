@@ -32,7 +32,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cwarren714/wordpress-interactivity-lsp"
+    "url": "git+https://github.com/cwarren714/wordpress-interactivity-lsp.git"
   },
   "dependencies": {
     "vscode-languageserver": "^9.0.1",
