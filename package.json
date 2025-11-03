@@ -1,0 +1,51 @@
+{
+  "name": "wordpress-interactivity-lsp",
+  "version": "0.1.0",
+  "description": "LSP implementation for WordPress Interactivity API directives",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "wordpress-interactivity-lsp": "dist/server.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "wordpress",
+    "interactivity-api",
+    "lsp",
+    "language-server",
+    "neovim",
+    "html"
+  ],
+  "author": "Chandler Warren",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cwarren714/wordpress-interactivity-lsp"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.11"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

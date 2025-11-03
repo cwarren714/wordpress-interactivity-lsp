@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Interactivity API Demo</title>
+</head>
+
+<body>
+    <!-- Basic interactivity setup -->
+    <div data-wp-interactive="myPlugin">
+
+        <!-- Context for local state -->
+        <div data-wp-context='{ "isOpen": false, "count": 0 }'>
+
+            <!-- Conditional attribute binding -->
+            <div data-wp-bind--hidden="!context.isOpen">
+                <p data-wp-text="context.count"></p>
+            </div>
+
+            <!-- Class toggling -->
+            <button data-wp-class--active="context.isOpen" data-wp-on--click="actions.toggle">
+                Toggle
+            </button>
+
+            <!-- Style binding -->
+            <div data-wp-style--opacity="context.isOpen ? '1' : '0.5'">
+                Fading content
+            </div>
+
+        </div>
+
+        <!-- Loop example -->
+        <ul data-wp-each--item="state.items">
+            <template data-wp-each-child>
+                <li data-wp-key="context.item.id" data-wp-text="context.item.name"></li>
+            </template>
+        </ul>
+
+        <!-- Event listeners -->
+        <form data-wp-on-async--submit="actions.handleSubmit">
+            <input type="text" data-wp-on--input="actions.handleInput" />
+        </form>
+
+        <!-- Window events -->
+        <div data-wp-on-window--resize="actions.handleResize">
+            Responsive element
+        </div>
+
+        <!-- Document events -->
+        <div data-wp-on-document--click="actions.handleDocumentClick">
+            Click anywhere
+        </div>
+
+        <!-- Lifecycle hooks -->
+        <div data-wp-init="actions.initialize" data-wp-watch="callbacks.watchState" data-wp-run="callbacks.runOnMount">
+            Initialized component
+        </div>
+
+    </div>
+
+</body>
+
+</html>
